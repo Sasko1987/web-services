@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <%- include("partials/header")%>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Website</th>
+        <th>Company</th>
+      </tr>
+      <% data.forEach((user)=>{ %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td>
+          <ul>
+            <% for(let key in user.address) { %>
+            <li><%= key %> : <%=user.address[key] %></li>
+            <% } %>
+          </ul>
+        </td>
+        <td><%= user.phone %></td>
+        <td><%= user.website %></td>
+        <td>
+          <ul>
+            <% for (let key in user.company) { %>
+            <li><%= key %> : <%= user.company[key] %></li>
+            <% } %>
+          </ul>
+        </td>
+      </tr>
+      <%}) %>
+    </table>
+  </body>
+</html>

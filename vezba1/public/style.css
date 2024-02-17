@@ -1,0 +1,67 @@
+header {
+  background-color: rgb(227, 225, 225);
+  position: sticky;
+  top: 0;
+  padding: 15px 10px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 15px;
+  background-color: blue;
+  color: white;
+  border-radius: 15px;
+}
+
+nav a:hover,
+button:hover {
+  background-color: rgb(3, 3, 176);
+}
+
+table,
+td {
+  border: 1px solid black;
+}
+
+table {
+  width: 90%;
+  margin: 60px auto;
+}
+
+td ul {
+  list-style: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+label {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+input {
+  width: 350px;
+  height: 40px;
+}
+
+button {
+  background-color: blue;
+  color: white;
+  border-radius: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 15px auto;
+}
