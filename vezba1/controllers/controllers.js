@@ -27,9 +27,14 @@ async function companyPage(req, res) {
 }
 
 async function findByCompany(req, res) {
-  const users = await findUsersByCompany(req.body.company);
-  console.log(req.body);
-  res.status(200).send(`Users who work in this comany are: ${users}`);
+  try {
+    const users = await findUsersByCompany(req.body.company);
+    console.log(req.body);
+    res.status(200).send(`Users who work in this comany are: ${users}`);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
 }
 
 async function getUsername(req, res) {
@@ -37,12 +42,17 @@ async function getUsername(req, res) {
 }
 
 async function findByUsername(req, res) {
-  const city = await findUserCityByUsername(req.body.username);
-  res
-    .status(200)
-    .send(
-      `The User with username <strong>${req.body.username}</strong> is living in ${city}`
-    );
+  try {
+    const city = await findUserCityByUsername(req.body.username);
+    res
+      .status(200)
+      .send(
+        `The User with username <strong>${req.body.username}</strong> is living in ${city}`
+      );
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
 }
 
 async function postsPage(req, res) {
@@ -50,9 +60,14 @@ async function postsPage(req, res) {
 }
 
 async function getPosts(req, res) {
-  const posts = await findUserPosts(req.body.id);
-  console.log(req.body.id);
-  res.status(200).send(`Title: ${posts.title},<br> Post: ${posts.body}`);
+  try {
+    const posts = await findUserPosts(req.body.id);
+    console.log(req.body.id);
+    res.status(200).send(`Title: ${posts.title},<br> Post: ${posts.body}`);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
 }
 
 async function getMenAndWoman(req, res) {
@@ -80,13 +95,23 @@ async function findManOlderThanThirty(req, res) {
 }
 
 async function findWomenYoungerThenThirty(req, res) {
-  const youngerWoman = await womanYoungerThenThirty();
-  res.status(200).send(`Women younger than 30 years are ${youngerWoman}`);
+  try {
+    const youngerWoman = await womanYoungerThenThirty();
+    res.status(200).send(`Women younger than 30 years are ${youngerWoman}`);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
 }
 
 async function findTheSecondOldestWoman(req, res) {
-  const secondWoman = await secondOlderWoman();
-  res.status(200).send(`Second oldest woman is ${secondWoman}`);
+  try {
+    const secondWoman = await secondOlderWoman();
+    res.status(200).send(`Second oldest woman is ${secondWoman}`);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
 }
 
 async function findOldestAndYoungest(req, res) {
