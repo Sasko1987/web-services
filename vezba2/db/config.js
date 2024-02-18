@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const uri = `mongodb+srv://skitac:Sasko299456@cluster0.frwhldk.mongodb.net/semos?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://skitac:<password>@cluster0.frwhldk.mongodb.net/semos?retryWrites=true&w=majority`;
 
 (async () => {
   try {

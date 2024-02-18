@@ -21,10 +21,14 @@ async function createCar(data) {
 }
 
 async function updateCar(data, id) {
-  return await Cars.updateOne({ _id: id }, data);
+  return await Car.updateOne({ _id: id }, data);
 }
 
 async function deleteCar(id) {
-  return await Cars.deleteOne({ _id: id });
+  return await Car.deleteOne({ _id: id });
 }
-module.exports = { viewCars, createCar, updateCar, deleteCar };
+
+async function sortCarsByName() {
+  return await Car.find({}).sort({ make: -1 });
+}
+module.exports = { viewCars, createCar, updateCar, deleteCar, sortCarsByName };

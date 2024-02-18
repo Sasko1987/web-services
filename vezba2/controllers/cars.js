@@ -1,4 +1,10 @@
-const { viewCars, createCar, updateCar, deleteCar } = require("../models/car");
+const {
+  viewCars,
+  createCar,
+  updateCar,
+  deleteCar,
+  sortCarsByName,
+} = require("../models/car");
 
 async function getAllCars(req, res) {
   try {
@@ -36,4 +42,14 @@ async function deletedCar(req, res) {
   }
 }
 
-module.exports = { getAllCars, addCar, updatedCar, deletedCar };
+async function getSortedCars(req, res) {
+  try {
+    const sorted = await sortCarsByName();
+    res.status(200).send(sorted);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
+}
+
+module.exports = { getAllCars, addCar, updatedCar, deletedCar, getSortedCars };
