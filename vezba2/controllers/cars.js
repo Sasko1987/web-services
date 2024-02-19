@@ -4,6 +4,9 @@ const {
   updateCar,
   deleteCar,
   sortCarsByName,
+  cheapCars,
+  expenciveCars,
+  updateOneValue,
 } = require("../models/car");
 
 async function getAllCars(req, res) {
@@ -52,4 +55,43 @@ async function getSortedCars(req, res) {
   }
 }
 
-module.exports = { getAllCars, addCar, updatedCar, deletedCar, getSortedCars };
+async function getCheapCars(req, res) {
+  try {
+    const cheapcars = await cheapCars();
+    res.status(200).send(cheapcars);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
+}
+
+async function getExpenciveCars(req, res) {
+  try {
+    const exprencive = await expenciveCars();
+    res.status(200).send(exprencive);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
+}
+
+async function updateOne(req, res) {
+  try {
+    await updateOneValue(req.param.id, req.body);
+    res.status(201).send("Updated");
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
+}
+
+module.exports = {
+  getAllCars,
+  addCar,
+  updatedCar,
+  deletedCar,
+  getSortedCars,
+  getCheapCars,
+  getExpenciveCars,
+  updateOne,
+};

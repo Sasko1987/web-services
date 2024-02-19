@@ -8,6 +8,8 @@ const {
   updatedCar,
   deletedCar,
   getSortedCars,
+  getCheapCars,
+  getExpenciveCars,
 } = require("./controllers/cars");
 
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +21,8 @@ app.post("/", addCar);
 app.put("/:id", updatedCar);
 app.delete("/:id", deletedCar);
 app.get("/sorted", getSortedCars);
+app.get("/cheap", getCheapCars);
+app.get("/expencive", getExpenciveCars);
 
 app.listen(5000, () => {
   console.log("Server is listening on port 5000");

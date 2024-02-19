@@ -31,4 +31,21 @@ async function deleteCar(id) {
 async function sortCarsByName() {
   return await Car.find({}).sort({ make: -1 });
 }
-module.exports = { viewCars, createCar, updateCar, deleteCar, sortCarsByName };
+
+async function cheapCars() {
+  return await Car.find({ price: { $lt: 20000 } });
+}
+
+async function expenciveCars() {
+  return await Car.find({ price: { $gt: 25000 } });
+}
+
+module.exports = {
+  viewCars,
+  createCar,
+  updateCar,
+  deleteCar,
+  sortCarsByName,
+  cheapCars,
+  expenciveCars,
+};
