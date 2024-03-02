@@ -1,0 +1,11 @@
+1. Handler za lokalni avtomobili
+2. Popolnete gi bazicnite funkcii vo cars/index.js
+3. Postavete novo pole vo schemata na cars i probajte istoto da go validirate pri sozdavanje 
+nov avtomobil isto i pri negovo azuriranje
+4. Istestirajte go seto toa
+
+
+*Bonus
+Avtorizacija
+Avtentikacija
+Sto e razlikata pomegju niv
